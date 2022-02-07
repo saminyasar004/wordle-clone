@@ -1,0 +1,16 @@
+{
+    "name": "wordle",
+    "version": "1.0.0",
+    "description": "Wordle",
+    "main": "./src/js/index.js",
+    "scripts": {
+        "build-tailwind": "tailwindcss -i ./src/tailwind/tailwind.css -o ./src/css/styles.css -w",
+        "minify-tailwind": "npx tailwindcss -i ./src/tailwind/tailwind.css -o ./src/css/styles.css --minify"
+    },
+    "keywords": [],
+    "author": "Samin Yasar",
+    "license": "MIT",
+    "devDependencies": {
+        "tailwindcss": "^3.0.7"
+    }
+}

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wordle - A word game</title>
+        <!-- Linking stylesheet -->
+        <link rel="stylesheet" href="../src/icon/css/all.min.css" />
+        <link rel="stylesheet" href="../src/css/styles.css" />
+        <!-- Linking javascript -->
+        <script src="../src/js/index.js" defer></script>
+    </head>
+    <body class="bg-gray-100 dark:bg-primaryBg relative">
+        <!-- Header section start -->
+        <section id="gameSection" class="game-section">
+            <nav class="w-full h-auto">
+                <div
+                    class="row p-3 border-b-3px dark:border-secondaryBg border-secondaryBg"
+                >
+                    <div class="flex items-center justify-center">
+                        <div class="">
+                            <i
+                                id="rulesButton"
+                                class="far fa-question-circle text-xl text-primary dark:text-white cursor-pointer transition-all dark:hover:text-primary hover:text-secondaryBg"
+                            ></i>
+                        </div>
+                        <div class="text-center flex-grow">
+                            <h1
+                                class="text-primary dark:text-white text-3xl font-semibold uppercase font-heading"
+                            >
+                                wordle
+                            </h1>
+                        </div>
+                        <div class="">
+                            <i
+                                id="settingsButton"
+                                class="fa fa-cog text-xl text-primary dark:text-white cursor-pointer transition-all dark:hover:text-primary hover:text-secondaryBg"
+                            ></i>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header section end -->
+
+            <!-- Game board section start -->
+            <section class="w-full h-auto py-4">
+                <div class="row">
+                    <div class="game-board">
+                        <div class="game-cell game-cell-1">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-2">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-3">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-4">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-5">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-6">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-7">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-8">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-9">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-10">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-11">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-12">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-13">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-14">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-15">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-16">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-17">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-18">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-19">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-20">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-21">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-22">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-23">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-24">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+
+                        <div class="game-cell game-cell-25">
+                            <h2
+                                class="text-black dark:text-white font-medium text-4xl uppercase"
+                            ></h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Game board section end -->
+
+            <!-- Keyboard section start -->
+            <section class="w-full h-auto">
+                <div
+                    class="row flex items-center justify-center flex-col gap-2"
+                >
+                    <div class="keyboard-row">
+                        <button
+                            class="keyboard-key"
+                            data-key="q"
+                            data-keyCode="113"
+                        >
+                            q
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="w"
+                            data-keyCode="119"
+                        >
+                            w
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="e"
+                            data-keyCode="101"
+                        >
+                            e
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="r"
+                            data-keyCode="114"
+                        >
+                            r
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="t"
+                            data-keyCode="116"
+                        >
+                            t
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="y"
+                            data-keyCode="121"
+                        >
+                            y
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="u"
+                            data-keyCode="117"
+                        >
+                            u
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="i"
+                            data-keyCode="105"
+                        >
+                            i
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="o"
+                            data-keyCode="111"
+                        >
+                            o
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="p"
+                            data-keyCode="112"
+                        >
+                            p
+                        </button>
+                    </div>
+
+                    <div class="keyboard-row">
+                        <div class="keyboard-key-half"></div>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="a"
+                            data-keyCode="97"
+                        >
+                            a
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="s"
+                            data-keyCode="115"
+                        >
+                            s
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="d"
+                            data-keyCode="100"
+                        >
+                            d
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="f"
+                            data-keyCode="102"
+                        >
+                            f
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="g"
+                            data-keyCode="103"
+                        >
+                            g
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="h"
+                            data-keyCode="104"
+                        >
+                            h
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="j"
+                            data-keyCode="106"
+                        >
+                            j
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="k"
+                            data-keyCode="107"
+                        >
+                            k
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="l"
+                            data-keyCode="108"
+                        >
+                            l
+                        </button>
+
+                        <div class="keyboard-key-half"></div>
+                    </div>
+
+                    <div class="keyboard-row">
+                        <button
+                            class="keyboard-key"
+                            data-key="↵"
+                            data-keyCode="13"
+                        >
+                            ↵
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="z"
+                            data-keyCode="122"
+                        >
+                            z
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="x"
+                            data-keyCode="120"
+                        >
+                            x
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="c"
+                            data-keyCode="99"
+                        >
+                            c
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="v"
+                            data-keyCode="118"
+                        >
+                            v
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="b"
+                            data-keyCode="98"
+                        >
+                            b
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="n"
+                            data-keyCode="110"
+                        >
+                            n
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="m"
+                            data-keyCode="109"
+                        >
+                            m
+                        </button>
+
+                        <button
+                            class="keyboard-key"
+                            data-key="⟵"
+                            data-keyCode="8"
+                        >
+                            ⟵
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Keyboard section end -->
+        </section>
+
+        <!-- Overlay section start -->
+        <section id="overlay" class="overlay overlay-disable">
+            <div id="overlayCrossButton" class="overlay-cross-button">
+                <i class="fa fa-times text-base"></i>
+            </div>
+            <div id="helpOverlayContent" class="help-overlay-content">
+                <div class="row py-1">
+                    <div
+                        class="flex items-center justify-around flex-col gap-4"
+                    >
+                        <h3 class="text-base font-medium uppercase">
+                            how to play
+                        </h3>
+                        <p class="w-full text-left text-sm">
+                            Guess the
+                            <span class="font-medium uppercase">wordle</span> in
+                            5 tries.
+                        </p>
+                        <p class="w-full text-left text-sm">
+                            Each guess must be a valid 5 letter word. Hit the
+                            enter button to submit.
+                        </p>
+                        <p class="w-full text-left text-sm">
+                            After each guess, the color of the tiles will change
+                            to show how close your guess was to the word.
+                        </p>
+                        <div
+                            class="w-full h-1 bg-secondaryBg dark:bg-primary rounded-lg"
+                        ></div>
+                    </div>
+                </div>
+                <div class="row py-1">
+                    <div
+                        class="flex items-center justify-around flex-col gap-4"
+                    >
+                        <p
+                            class="w-full text-left text-base font-medium capitalize"
+                        >
+                            examples
+                        </p>
+                        <div
+                            class="w-full flex items-center justify-start gap-1"
+                        >
+                            <div class="help-overlay-game-cell bg-primary">
+                                <h2
+                                    class="text-black font-medium text-xl uppercase"
+                                >
+                                    w
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    e
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    a
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    r
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    y
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="w-full text-left text-sm">
+                            The letter
+                            <span class="font-medium uppercase">w</span> is in
+                            the word and in the correct spot.
+                        </p>
+
+                        <div
+                            class="w-full flex items-center justify-start gap-1"
+                        >
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    p
+                                </h2>
+                            </div>
+                            <div
+                                class="help-overlay-game-cell bg-yellow border-yellow"
+                            >
+                                <h2
+                                    class="text-black font-medium text-xl uppercase"
+                                >
+                                    i
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    l
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    l
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    s
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="w-full text-left text-sm">
+                            The letter
+                            <span class="font-medium uppercase">i</span> is in
+                            the word but in the wrong spot. (Except hard mode)
+                        </p>
+
+                        <div
+                            class="w-full flex items-center justify-start gap-1"
+                        >
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    v
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    a
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    g
+                                </h2>
+                            </div>
+                            <div
+                                class="help-overlay-game-cell bg-red border-red"
+                            >
+                                <h2
+                                    class="text-black font-medium text-xl uppercase"
+                                >
+                                    u
+                                </h2>
+                            </div>
+                            <div class="help-overlay-game-cell">
+                                <h2
+                                    class="text-black dark:text-white font-medium text-xl uppercase"
+                                >
+                                    e
+                                </h2>
+                            </div>
+                        </div>
+                        <p class="w-full text-left text-sm">
+                            The letter
+                            <span class="font-medium uppercase">u</span> is not
+                            in the word in any spot.
+                        </p>
+
+                        <div
+                            class="w-full h-1 bg-secondaryBg dark:bg-primary rounded-lg"
+                        ></div>
+
+                        <p class="w-full text-left text-sm">
+                            A new
+                            <span class="font-medium uppercase">wordle</span>
+                            will be available everytime page refresh!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settingsOverlayContent" class="settings-overlay-content">
+                <div class="row py-1">
+                    <ul
+                        class="flex items-center justify-around flex-col py-4 gap-4"
+                    >
+                        <li
+                            class="w-full flex items-center justify-between text-sm capitalize font-medium text-left"
+                        >
+                            <span
+                                >hard mode <br />
+                                <span class="text-xxs capitalize"
+                                    >wrong spot will not show</span
+                                >
+                            </span>
+
+                            <span id="hardModeSwitch" class="switch">
+                                <span data-hardMode="false" class="knob"></span>
+                            </span>
+                        </li>
+
+                        <li
+                            class="w-full flex items-center justify-between text-sm capitalize font-medium text-left"
+                        >
+                            <span>dark mode</span>
+                            <span id="darkModeSwitch" class="switch">
+                                <span data-darkMode="false" class="knob"></span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row py-1">
+                    <div
+                        class="flex items-center justify-around flex-col gap-4"
+                    >
+                        <p class="w-full text-sm text-left">
+                            Inspired from
+                            <a
+                                href="https://twitter.com/powerlanguish?s=20"
+                                target="_blank"
+                                class="transition-all text-primary hover:underline font-medium capitalize"
+                                >josh wardle</a
+                            >'s
+                            <a
+                                href="https://www.powerlanguage.co.uk/wordle/"
+                                target="_blank"
+                                class="transition-all text-primary hover:underline font-medium capitalize"
+                                >wordle</a
+                            >
+                        </p>
+
+                        <p class="w-full text-sm text-left">
+                            Design & developed by
+                            <a
+                                href="https://saminyasar.netlify.app/"
+                                target="_blank"
+                                class="transition-all text-primary hover:underline font-medium capitalize"
+                                >samin yasar</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="messageOverlayContent" class="message-overlay-content">
+                <div class="row py-1">
+                    <div class="flex items-center justify-around">
+                        <p
+                            class="message-container w-full text-sm text-left"
+                        ></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Overlay section end -->
+    </body>
+</html>

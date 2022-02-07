@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"),
+        url("../font/Poppins/Poppins-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),
+        url("../font/Montserrat/Montserrat-Regular.ttf") format("ttf");
+}
+
+*,
+*::before,
+*::after {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    color: #fff;
+    background: #ff523b;
+}
+
+body {
+    @apply cursor-default overflow-x-hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+    @apply font-heading;
+}
+
+p,
+a {
+    @apply font-para;
+}
+
+.text-xxs {
+    font-size: 0.7rem;
+}
+
+.row {
+    max-width: 40rem;
+    width: 90%;
+    margin: auto;
+}
+
+.game-section {
+}
+
+.game-section-disable {
+    opacity: 30%;
+    filter: blur(0.0625rem);
+    pointer-events: none;
+}
+
+.game-board {
+    @apply grid grid-rows-5 grid-cols-5 gap-1 m-auto;
+    max-width: 22rem;
+}
+
+.game-cell {
+    @apply w-16 h-16 border-2 border-secondaryBg flex items-center justify-center uppercase;
+}
+
+.keyboard-row {
+    @apply w-full flex items-center justify-around gap-2;
+}
+
+.keyboard-key {
+    @apply keyboard-flex-1 text-black dark:text-white bg-gray-300 dark:bg-secondaryBg h-16 rounded-md text-base font-medium uppercase text-center transition-all hover:bg-secondaryBg hover:text-white hover:dark:bg-primary hover:dark:text-black;
+}
+
+.keyboard-key-half {
+    flex: 0.5;
+}
+
+.keyboard-flex-1 {
+    flex: 1;
+}
+
+.keyboard-one-half {
+    flex: 1.5;
+}
+
+.overlay-disable {
+    @apply hidden;
+}
+
+.overlay {
+    @apply h-auto rounded-lg bg-white dark:bg-secondaryBg text-black dark:text-white absolute top-1/2 left-1/2 py-4 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg;
+    max-width: 35rem;
+    width: 80%;
+}
+
+.help-overlay-game-cell {
+    @apply w-10 h-10 border-2 border-secondaryBg dark:border-primary flex items-center justify-center uppercase;
+}
+
+.overlay-cross-button {
+    @apply w-10 h-10 flex items-center justify-center bg-secondaryBg dark:bg-primary text-white dark:text-black rounded-full absolute cursor-pointer transition-all hover:bg-primary hover:text-black hover:dark:bg-secondary;
+    top: -2%;
+    right: -2%;
+}
+
+.help-overlay-content,
+.settings-overlay-content,
+.message-overlay-content {
+    display: none;
+}
+
+.switch {
+    @apply bg-gray-800 rounded-full w-8 h-5 relative cursor-pointer;
+}
+
+.knob {
+    @apply w-4 h-4 block absolute bg-white rounded-full pointer-events-none transition-all;
+    top: 8%;
+    left: 5%;
+    /* 40% */
+}
+
+.switch-active {
+    left: 40%;
+}
+
+@tailwind utilities;
