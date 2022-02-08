@@ -82,7 +82,7 @@ a {
 }
 
 .keyboard-key {
-    @apply keyboard-flex-1 text-black dark:text-white bg-gray-300 dark:bg-secondaryBg h-16 rounded-md text-base font-medium uppercase text-center transition-all hover:bg-secondaryBg hover:text-white hover:dark:bg-primary hover:dark:text-black;
+    @apply keyboard-flex-1 h-16 rounded-md text-base font-medium uppercase text-center transition-all hover:bg-secondaryBg hover:text-white hover:dark:bg-primary hover:dark:text-black;
 }
 
 .keyboard-key-half {

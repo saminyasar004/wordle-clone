@@ -2808,12 +2808,18 @@ const submit = (text) => {
         const rightCells = [];
         const wrongSpotCells = [];
         const wrongCells = [];
+        // TODO: Highlight right/wrong/wrong spot letters on the screen keyboard
+        const rightLetters = [];
+        const wrongLetters = [];
+        const wrongSpotLetters = [];
+
         game.word.split("").forEach((ch, index) => {
             const currentCell = document.querySelector(
                 `.game-cell-${5 * game.currentTry - (5 - (index + 1))} h2`
             );
             if (ch === text.split("")[index]) {
                 rightCells.push(currentCell);
+                rightLetters.push(currentCell.textContent);
             } else {
                 // check that if the user types any word in wrong spot
                 if (text.search(ch) > -1 && !game.hardMode) {
@@ -2825,9 +2831,15 @@ const submit = (text) => {
                     );
                     wrongCells.push(currentCell);
                     wrongSpotCells.push(wrongSpotCell);
+                    wrongLetters.push(currentCell.textContent);
+                    wrongSpotLetters.push(wrongSpotCell.textContent);
                 } else {
-                    if (!wrongSpotCells.includes(currentCell)) {
+                    if (
+                        !wrongSpotCells.includes(currentCell) &&
+                        !wrongSpotLetters.includes(currentCell.textContent)
+                    ) {
                         wrongCells.push(currentCell);
+                        wrongLetters.push(currentCell.textContent);
                     }
                 }
             }
@@ -2835,21 +2847,38 @@ const submit = (text) => {
 
         rightCells.forEach((cell) => {
             cell.parentElement.classList.add("bg-primary");
-            cell.classList.add("text-black");
             cell.classList.remove("dark:text-white");
-            cell.classList.add("dark:text-black");
+            cell.classList.add("text-black", "dark:text-black");
         });
 
         wrongSpotCells.forEach((cell) => {
             cell.parentElement.classList.add("bg-yellow");
-            cell.classList.add("text-black");
             cell.classList.remove("dark:text-white");
-            cell.classList.add("dark:text-black");
+            cell.classList.add("text-black", "dark:text-black");
         });
 
         wrongCells.forEach((cell) => {
             if (!wrongSpotCells.includes(cell)) {
                 cell.parentElement.classList.add("bg-red");
+            }
+        });
+
+        rightLetters.forEach((letter) => {
+            const selector = document.querySelector(`[data-key = "${letter}"]`);
+            selector.className = "keyboard-key bg-primary text-black";
+        });
+
+        wrongSpotLetters.forEach((letter) => {
+            const selector = document.querySelector(`[data-key = "${letter}"]`);
+            selector.className = "keyboard-key bg-yellow text-black";
+        });
+
+        wrongLetters.forEach((letter) => {
+            if (!wrongSpotLetters.includes(letter)) {
+                const selector = document.querySelector(
+                    `[data-key = "${letter}"]`
+                );
+                selector.className = "keyboard-key bg-red text-black";
             }
         });
 
