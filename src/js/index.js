@@ -3047,46 +3047,50 @@ darkModeSwitch.addEventListener("click", switchTheme);
 
 // Interact if user type any key from external keyboard
 window.addEventListener("keydown", (e) => {
-    if (!game.isGameEnd && !game.win) {
-        // if pressed key is a letter
-        if (
-            (e.keyCode >= 65 && e.keyCode <= 90) ||
-            (e.keyCode >= 97 && e.keyCode <= 122)
-        ) {
-            if (game.guesses[game.currentTry].length < 5) {
-                type(e.key.toString().toLowerCase());
-            } else {
-                gamePopup("Please press enter to submit this word.");
+    if (!e.ctrlKey && !e.altKey) {
+        if (!game.isGameEnd && !game.win) {
+            // if pressed key is a letter
+            if (
+                (e.keyCode >= 65 && e.keyCode <= 90) ||
+                (e.keyCode >= 97 && e.keyCode <= 122)
+            ) {
+                if (game.guesses[game.currentTry].length < 5) {
+                    type(e.key.toString().toLowerCase());
+                } else {
+                    gamePopup("Please press enter to submit this word.");
+                }
+            } else if (e.keyCode === 8) {
+                // if pressed key is Backspace
+                if (game.guesses[game.currentTry].length >= 1) {
+                    remove();
+                } else {
+                    gamePopup(
+                        "Please guess a word within 5 characters & type it."
+                    );
+                }
+            } else if (e.keyCode === 13) {
+                // if pressed key is Enter
+                if (game.guesses[game.currentTry].length === 5) {
+                    submit(game.guesses[game.currentTry].join(""));
+                } else {
+                    gamePopup("Not enough letters.");
+                }
             }
-        } else if (e.keyCode === 8) {
-            // if pressed key is Backspace
-            if (game.guesses[game.currentTry].length >= 1) {
-                remove();
+        } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
+            if (game.win) {
+                gamePopup(
+                    `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
+                );
             } else {
-                gamePopup("Please guess a word within 5 characters & type it.");
+                gamePopup(
+                    `You cannot guess the correct word. The word is: ${game.word}.`
+                );
             }
-        } else if (e.keyCode === 13) {
-            // if pressed key is Enter
-            if (game.guesses[game.currentTry].length === 5) {
-                submit(game.guesses[game.currentTry].join(""));
-            } else {
-                gamePopup("Not enough letters.");
-            }
-        }
-    } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
-        if (game.win) {
-            gamePopup(
-                `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
-            );
         } else {
             gamePopup(
-                `You cannot guess the correct word. The word is: ${game.word}.`
+                "You exceed your maximum tries. Please refresh the page to play again."
             );
         }
-    } else {
-        gamePopup(
-            "You exceed your maximum tries. Please refresh the page to play again."
-        );
     }
 });
 
@@ -3094,50 +3098,54 @@ window.addEventListener("keydown", (e) => {
 document.querySelectorAll(".keyboard-row").forEach((row) => {
     row.querySelectorAll("button").forEach((key) => {
         key.addEventListener("click", (e) => {
-            if (!game.isGameEnd && !game.win) {
-                // if pressed key is a letter
-                if (
-                    (parseInt(e.target.dataset.keycode) >= 65 &&
-                        parseInt(e.target.dataset.keycode) <= 90) ||
-                    (parseInt(e.target.dataset.keycode) >= 97 &&
-                        parseInt(e.target.dataset.keycode) <= 122)
-                ) {
-                    if (game.guesses[game.currentTry].length < 5) {
-                        type(e.target.dataset.key.toString().toLowerCase());
-                    } else {
-                        gamePopup("Please press enter to submit this word.");
+            if (!e.ctrlKey && !e.altKey) {
+                if (!game.isGameEnd && !game.win) {
+                    // if pressed key is a letter
+                    if (
+                        (parseInt(e.target.dataset.keycode) >= 65 &&
+                            parseInt(e.target.dataset.keycode) <= 90) ||
+                        (parseInt(e.target.dataset.keycode) >= 97 &&
+                            parseInt(e.target.dataset.keycode) <= 122)
+                    ) {
+                        if (game.guesses[game.currentTry].length < 5) {
+                            type(e.target.dataset.key.toString().toLowerCase());
+                        } else {
+                            gamePopup(
+                                "Please press enter to submit this word."
+                            );
+                        }
+                    } else if (parseInt(e.target.dataset.keycode) === 8) {
+                        // if pressed key is Backspace
+                        if (game.guesses[game.currentTry].length >= 1) {
+                            remove();
+                        } else {
+                            gamePopup(
+                                "Please guess a word within 5 characters & type it."
+                            );
+                        }
+                    } else if (parseInt(e.target.dataset.keycode) === 13) {
+                        // if pressed key is Enter
+                        if (game.guesses[game.currentTry].length === 5) {
+                            submit(game.guesses[game.currentTry].join(""));
+                        } else {
+                            gamePopup("Not enough letters.");
+                        }
                     }
-                } else if (parseInt(e.target.dataset.keycode) === 8) {
-                    // if pressed key is Backspace
-                    if (game.guesses[game.currentTry].length >= 1) {
-                        remove();
+                } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
+                    if (game.win) {
+                        gamePopup(
+                            `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
+                        );
                     } else {
                         gamePopup(
-                            "Please guess a word within 5 characters & type it."
+                            `You cannot guess the correct word. The word is: ${game.word}.`
                         );
                     }
-                } else if (parseInt(e.target.dataset.keycode) === 13) {
-                    // if pressed key is Enter
-                    if (game.guesses[game.currentTry].length === 5) {
-                        submit(game.guesses[game.currentTry].join(""));
-                    } else {
-                        gamePopup("Not enough letters.");
-                    }
-                }
-            } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
-                if (game.win) {
-                    gamePopup(
-                        `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
-                    );
                 } else {
                     gamePopup(
-                        `You cannot guess the correct word. The word is: ${game.word}.`
+                        "You exceed your maximum tries. Please refresh the page to play again."
                     );
                 }
-            } else {
-                gamePopup(
-                    "You exceed your maximum tries. Please refresh the page to play again."
-                );
             }
         });
     });
