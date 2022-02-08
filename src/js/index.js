@@ -2835,11 +2835,16 @@ const submit = (text) => {
 
         rightCells.forEach((cell) => {
             cell.parentElement.classList.add("bg-primary");
+            cell.classList.add("text-black");
+            cell.classList.remove("dark:text-white");
+            cell.classList.add("dark:text-black");
         });
 
         wrongSpotCells.forEach((cell) => {
             cell.parentElement.classList.add("bg-yellow");
             cell.classList.add("text-black");
+            cell.classList.remove("dark:text-white");
+            cell.classList.add("dark:text-black");
         });
 
         wrongCells.forEach((cell) => {
