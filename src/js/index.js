@@ -2754,6 +2754,7 @@ const game = {
     currentTry: 1,
     maxTries: 5,
     isGameEnd: false,
+    win: false,
 };
 
 // Fetch the random word if it's not already generated
@@ -2854,12 +2855,20 @@ const submit = (text) => {
         ) {
             // all cells is rigth / user guessed the right word
             game.isGameEnd = true;
+            game.win = true;
             gamePopup(
                 `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
             );
-        } else {
+        } else if (game.currentTry < game.maxTries) {
+            // user cannot guess the right word but user have more tries
             game.currentTry++;
             game.isGameEnd = !Boolean(game.currentTry <= game.maxTries);
+        } else {
+            // User cannot guess the right word within maximum tries
+            game.isGameEnd = true;
+            gamePopup(
+                `You cannot guess the correct word. The word is: ${game.word}.`
+            );
         }
     } else {
         gamePopup("Not in word list.");
@@ -3004,7 +3013,7 @@ darkModeSwitch.addEventListener("click", switchTheme);
 
 // Interact if user type any key from external keyboard
 window.addEventListener("keydown", (e) => {
-    if (!game.isGameEnd) {
+    if (!game.isGameEnd && !game.win) {
         // if pressed key is a letter
         if (
             (e.keyCode >= 65 && e.keyCode <= 90) ||
@@ -3030,10 +3039,16 @@ window.addEventListener("keydown", (e) => {
                 gamePopup("Not enough letters.");
             }
         }
-    } else if (game.isGameEnd) {
-        gamePopup(
-            `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
-        );
+    } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
+        if (game.win) {
+            gamePopup(
+                `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
+            );
+        } else {
+            gamePopup(
+                `You cannot guess the correct word. The word is: ${game.word}.`
+            );
+        }
     } else {
         gamePopup(
             "You exceed your maximum tries. Please refresh the page to play again."
@@ -3045,7 +3060,7 @@ window.addEventListener("keydown", (e) => {
 document.querySelectorAll(".keyboard-row").forEach((row) => {
     row.querySelectorAll("button").forEach((key) => {
         key.addEventListener("click", (e) => {
-            if (!game.isGameEnd) {
+            if (!game.isGameEnd && !game.win) {
                 // if pressed key is a letter
                 if (
                     (parseInt(e.target.dataset.keycode) >= 65 &&
@@ -3075,10 +3090,16 @@ document.querySelectorAll(".keyboard-row").forEach((row) => {
                         gamePopup("Not enough letters.");
                     }
                 }
-            } else if (game.isGameEnd) {
-                gamePopup(
-                    `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
-                );
+            } else if (game.isGameEnd && game.currentTry <= game.maxTries) {
+                if (game.win) {
+                    gamePopup(
+                        `You can guess the word within ${game.currentTry} tries. Refresh the page to play again.`
+                    );
+                } else {
+                    gamePopup(
+                        `You cannot guess the correct word. The word is: ${game.word}.`
+                    );
+                }
             } else {
                 gamePopup(
                     "You exceed your maximum tries. Please refresh the page to play again."
