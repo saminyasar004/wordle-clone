@@ -1,13 +1,23 @@
 {
     "name": "wordle",
     "version": "1.0.0",
-    "description": "Wordle",
+    "description": "Wordle - A word puzzle game.",
     "main": "./src/js/index.js",
     "scripts": {
         "build-tailwind": "tailwindcss -i ./src/tailwind/tailwind.css -o ./src/css/styles.css -w",
         "minify-tailwind": "npx tailwindcss -i ./src/tailwind/tailwind.css -o ./src/css/styles.css --minify"
     },
-    "keywords": [],
+    "keywords": [
+        "wordle",
+        "wordle-javascript",
+        "wordle-clone",
+        "wordle-clone-javascript",
+        "javascript",
+        "nodejs",
+        "tailwindcss",
+        "tailwind-css",
+        "netlify"
+    ],
     "author": "Samin Yasar",
     "license": "MIT",
     "devDependencies": {
