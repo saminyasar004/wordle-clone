@@ -12,4 +12,4 @@ Wordle is a word puzzle game inspired from [Josh Wardle's](https://twitter.com/p
 
 ![Design preview](./src/img/preview.jpg)
 
-Happy Coding 🚀
+#### Happy Coding 🚀
