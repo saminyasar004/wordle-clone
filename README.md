@@ -11,3 +11,5 @@
 Wordle is a word puzzle game inspired from [Josh Wardle's](https://twitter.com/powerlanguish?s=20) [Wordle](https://www.powerlanguage.co.uk/wordle/)
 
 ![Design preview](./src/img/preview.jpg)
+
+Happy Coding 🚀
