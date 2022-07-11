@@ -18,7 +18,7 @@
         "tailwind-css",
         "netlify"
     ],
-    "author": "Samin Yasar",
+    "author": "Samin Yasar <yasarsamin57@gmail.com>",
     "license": "MIT",
     "devDependencies": {
         "tailwindcss": "^3.0.7"
